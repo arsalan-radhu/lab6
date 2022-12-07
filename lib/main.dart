@@ -9,9 +9,15 @@ import 'widgets/course_list.dart';
 import 'widgets/new_inst.dart';
 import 'widgets/inst_list.dart';
 
+
 import 'models/prof.dart';
 
 void main() => runApp(const MyApp());
+
+// Global Colors
+var color = Colors.blue;
+var backgroundColor = Colors.white;
+var textColor = Colors.white;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,39 +32,144 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MySettingsPage extends StatelessWidget {
-  const MySettingsPage({super.key});
+class MySettingsPage extends StatefulWidget
+{
+  @override
+  State<StatefulWidget> createState() {
+    return MySettingsPageState();
+  } 
+}
+
+class MySettingsPageState extends State {
+
+  // Methods
+  // App Bar and content Color Changes
+  void red()
+  {
+    setState(() 
+    {
+      color = Colors.red;
+      backgroundColor = Colors.white;
+    });
+  }
+  void blue()
+  {
+    setState(() 
+    {
+      color = Colors.blue;
+      backgroundColor = Colors.white;
+    });
+  }
+  void green()
+  {
+    setState(() 
+    {
+      color = Colors.green;
+      backgroundColor = Colors.white;
+    });
+  }
+  void dark()
+  {
+    setState(()
+    {
+      color = Colors.blueGrey;
+      backgroundColor = const Color.fromRGBO(0, 0, 0, 1);
+    });
+  }
+
+
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('Settings Page'),
+        backgroundColor: color,
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Home Page'),
-          onPressed: () {
-            //Navigate Back Home
-            Navigator.pop(context);
-          },
-        ),
+      body: 
+      Center(
+        child: 
+        Column
+        (
+          children: <Widget>
+          [
+            // Change Color button red
+            Container
+            (
+              child:
+              ElevatedButton(onPressed: red, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Red")),
+            ),
+            // Change Color button blue
+            Container
+            (
+              child:
+              ElevatedButton(onPressed: blue, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Blue")),
+            ),
+            // Change Color button green
+            Container
+            (
+              child:
+              ElevatedButton(onPressed: green, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Green")),
+            ),  
+            // Change Color button dark
+            Container
+            (
+              child:
+              ElevatedButton(onPressed: dark, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Dark")),
+            ),               
+            // Home Button
+            Container
+            (
+              child: ElevatedButton
+              (
+                child: const Text('Home Page'),
+                style: ElevatedButton.styleFrom(backgroundColor: color),
+                onPressed:() 
+                {
+                    //Navigate Back Home
+                    Navigator.pushAndRemoveUntil
+                    (context,
+                    MaterialPageRoute
+                    (
+                      builder: (context) => MyHomePage()
+                    ),
+                    ModalRoute.withName("/MySettingsPage")
+                    );
+                },
+              ),
+
+            ),
+
+          ]
+        )
+
       ),
     );
   }
 }
 
+class MyHomePage extends StatefulWidget
+{
+  @override
+  State<StatefulWidget> createState() {
+    return MyHomePageState();
+  }
+}
+
 // ignore: todo
 //TODO: Change this to HOME Screen
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MyHomePageState extends State {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('Home Page'),
         centerTitle: true,
+        backgroundColor: color,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -66,10 +177,10 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             width: double.infinity,
-            child: const Card(
-              color: Colors.blue,
+            child: Card(
+              color: color,
               elevation: 5,
-              child: Text(
+              child: const Text(
                 'Welcome to our Final Project!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -87,6 +198,7 @@ class MyHomePage extends StatelessWidget {
                 widthFactor: 0.4, ////Provides 40% width for the RaisedButton
                 child: ElevatedButton(
                   child: const Text('Rate Profs'),
+                  style: ElevatedButton.styleFrom(backgroundColor: color,),
                   onPressed: () {
                     //Navigate to Settings
                     Navigator.push(
@@ -106,6 +218,7 @@ class MyHomePage extends StatelessWidget {
                 widthFactor: 0.4, ////Provides 40% width for the RaisedButton
                 child: ElevatedButton(
                   child: const Text('Rate Courses'),
+                  style: ElevatedButton.styleFrom(backgroundColor: color),
                   onPressed: () {
                     //Navigate to Settings
                     Navigator.push(
@@ -126,6 +239,7 @@ class MyHomePage extends StatelessWidget {
                 widthFactor: 0.45, ////Provides 40% width for the RaisedButton
                 child: ElevatedButton(
                   child: const Text('Rate Colleges/Universities'),
+                  style: ElevatedButton.styleFrom(backgroundColor: color),
                   onPressed: () {
                     //Navigate to Settings
                     Navigator.push(
@@ -145,11 +259,15 @@ class MyHomePage extends StatelessWidget {
                 widthFactor: 0.4, ////Provides 40% width for the RaisedButton
                 child: ElevatedButton(
                   child: const Text('Settings Page'),
+                  style: ElevatedButton.styleFrom(backgroundColor: color),
                   onPressed: () {
                     //Navigate to Settings
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => MySettingsPage()),
+                      MaterialPageRoute
+                      (builder: (context) => MySettingsPage()
+                      ),
+                      ModalRoute.withName("/home")
                     );
                   }, //Settings Page Navigation
                 ),
@@ -245,8 +363,10 @@ class _ViewProfState extends State<ViewProf> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('Professors Reviews Home'),
+        backgroundColor: color,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add_box_outlined),
@@ -261,10 +381,10 @@ class _ViewProfState extends State<ViewProf> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: const Card(
-                color: Colors.blue,
+              child: Card(
+                color: color,
                 elevation: 5,
-                child: Text(
+                child: const Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
@@ -276,6 +396,7 @@ class _ViewProfState extends State<ViewProf> {
             ProfList(_profReviews),
             ElevatedButton(
               child: const Text('Home'),
+              style: ElevatedButton.styleFrom(backgroundColor: color),
               onPressed: () {
                 //Navigate Back Home
                 Navigator.pop(context);
@@ -354,8 +475,10 @@ class _ViewCourseState extends State<ViewCourse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('Courses Reviews Home'),
+        backgroundColor: color,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add_box_outlined),
@@ -370,10 +493,10 @@ class _ViewCourseState extends State<ViewCourse> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: const Card(
-                color: Colors.blue,
+              child: Card(
+                color: color,
                 elevation: 5,
-                child: Text(
+                child: const Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
@@ -385,6 +508,7 @@ class _ViewCourseState extends State<ViewCourse> {
             CourseList(_courseReviews),
             ElevatedButton(
               child: const Text('Home'),
+              style: ElevatedButton.styleFrom(backgroundColor: color),
               onPressed: () {
                 //Navigate Back Home
                 Navigator.pop(context);
@@ -463,8 +587,10 @@ class _ViewInstState extends State<ViewInst> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('Institutions Reviews Home'),
+        backgroundColor:  color,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add_box_outlined),
@@ -479,10 +605,10 @@ class _ViewInstState extends State<ViewInst> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: const Card(
-                color: Colors.blue,
+              child: Card(
+                color: color,
                 elevation: 5,
-                child: Text(
+                child: const Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
@@ -494,6 +620,7 @@ class _ViewInstState extends State<ViewInst> {
             InstList(_instReviews),
             ElevatedButton(
               child: const Text('Home'),
+              style: ElevatedButton.styleFrom(backgroundColor: color),
               onPressed: () {
                 //Navigate Back Home
                 Navigator.pop(context);
