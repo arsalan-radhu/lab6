@@ -1,5 +1,14 @@
-import 'package:flutter/material.dart';
+/*
+* Author:       Tyler Osborne
+* Date:         2022-11-24  
+* Course Code:  MODE4201
+* Description:
+*               This is a Rate my prof app where users can
+*               review profs, courses, and insatutions.
+**/
 
+//          Imports         //
+import 'package:flutter/material.dart';
 import 'widgets/new_prof.dart';
 import 'widgets/prof_list.dart';
 import 'widgets/new_course.dart';
@@ -8,20 +17,22 @@ import '../models/inst.dart';
 import 'widgets/course_list.dart';
 import 'widgets/new_inst.dart';
 import 'widgets/inst_list.dart';
-
-
 import 'models/prof.dart';
 
-void main() => runApp(const MyApp());
+//          App Start         //
+void main() => runApp(const MyApp()); // Runs the app
 
-// Global Colors
-var color = Colors.blue;
-var backgroundColor = Colors.white;
-var textColor = Colors.white;
+//          Global Color Variables          //
+var color = Colors.blue; // Color of the app bar
+var backgroundColor = Colors.white; // Color of the background of the app
+var textColor = Colors.white; // Color of text
 
+///**************************************** */
+///         Main App
+///**************************************** */
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  // Main Build
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -31,7 +42,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+///**************************************** */
+///         Settings widget
+///**************************************** */
+//          Widget          //
 class MySettingsPage extends StatefulWidget
 {
   @override
@@ -40,10 +54,11 @@ class MySettingsPage extends StatefulWidget
   } 
 }
 
+//          State         //
 class MySettingsPageState extends State {
 
-  // Methods
-  // App Bar and content Color Changes
+  //          Settings Methods          //
+  // Changes the color of the app to red
   void red()
   {
     setState(() 
@@ -52,6 +67,8 @@ class MySettingsPageState extends State {
       backgroundColor = Colors.white;
     });
   }
+
+  // Changes the color of the app to blue
   void blue()
   {
     setState(() 
@@ -60,6 +77,8 @@ class MySettingsPageState extends State {
       backgroundColor = Colors.white;
     });
   }
+
+  // Changes the color of the app to green
   void green()
   {
     setState(() 
@@ -68,6 +87,8 @@ class MySettingsPageState extends State {
       backgroundColor = Colors.white;
     });
   }
+
+  // Changes the color of the app to dark
   void dark()
   {
     setState(()
@@ -77,9 +98,7 @@ class MySettingsPageState extends State {
     });
   }
 
-
-  
-
+  //          Build Settings          //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,31 +114,31 @@ class MySettingsPageState extends State {
         (
           children: <Widget>
           [
-            // Change Color button red
+            //          Change Color button red         //
             Container
             (
               child:
               ElevatedButton(onPressed: red, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Red")),
             ),
-            // Change Color button blue
+            //          Change Color button blue          //
             Container
             (
               child:
               ElevatedButton(onPressed: blue, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Blue")),
             ),
-            // Change Color button green
+            //          Change Color button green         //
             Container
             (
               child:
               ElevatedButton(onPressed: green, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Green")),
             ),  
-            // Change Color button dark
+            //          Change Color button dark          //
             Container
             (
               child:
               ElevatedButton(onPressed: dark, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Dark")),
             ),               
-            // Home Button
+            //          Home Button         //
             Container
             (
               child: ElevatedButton
@@ -128,7 +147,7 @@ class MySettingsPageState extends State {
                 style: ElevatedButton.styleFrom(backgroundColor: color),
                 onPressed:() 
                 {
-                    //Navigate Back Home
+                    // Navigate Back Home
                     Navigator.pushAndRemoveUntil
                     (context,
                     MaterialPageRoute
@@ -150,6 +169,10 @@ class MySettingsPageState extends State {
   }
 }
 
+///**************************************** */
+///         Home Page Widget
+///**************************************** */
+//          Widget          //
 class MyHomePage extends StatefulWidget
 {
   @override
@@ -158,10 +181,10 @@ class MyHomePage extends StatefulWidget
   }
 }
 
-// ignore: todo
-//TODO: Change this to HOME Screen
+//          State         //
 class MyHomePageState extends State {
 
+  //          Build Home Page         //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -234,9 +257,9 @@ class MyHomePageState extends State {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 70.0, //Provides height for the RaisedButton
+              height: 50.0, //Provides height for the RaisedButton
               child: FractionallySizedBox(
-                widthFactor: 0.45, ////Provides 40% width for the RaisedButton
+                widthFactor: 0.4, ////Provides 40% width for the RaisedButton
                 child: ElevatedButton(
                   child: const Text('Rate Colleges/Universities'),
                   style: ElevatedButton.styleFrom(backgroundColor: color),
@@ -280,7 +303,10 @@ class MyHomePageState extends State {
   }
 }
 
-//TODO: Update this page to be the VIEW page
+///**************************************** */
+///         View Prof Widget
+///**************************************** */
+//          Widget          //
 class ViewProf extends StatefulWidget {
   const ViewProf({super.key});
 
@@ -288,27 +314,13 @@ class ViewProf extends StatefulWidget {
   State<ViewProf> createState() => _ViewProfState();
 }
 
-class ViewCourse extends StatefulWidget {
-  const ViewCourse({super.key});
-
-  @override
-  State<ViewCourse> createState() => _ViewCourseState();
-}
-
-class ViewInst extends StatefulWidget {
-  const ViewInst({super.key});
-
-  @override
-  State<ViewInst> createState() => _ViewInstState();
-}
-
+//          State         //
 class _ViewProfState extends State<ViewProf> {
   // final nameController = TextEditingController();
-
   // final costController = TextEditingController();
-
   // final typeController = TextEditingController();
 
+  //          Default List of Profs         //
   final List<Prof> _profReviews = [
     Prof(
       id: 'm1',
@@ -327,7 +339,8 @@ class _ViewProfState extends State<ViewProf> {
       review: "He sucked!",
     ),
   ];
-
+  //          View Profs Methods          /
+  // Adds a new prof review
   void _addNewProf(String name, double rating, String type, String review) {
     if (review == "") {
       review = "No Review";
@@ -347,6 +360,7 @@ class _ViewProfState extends State<ViewProf> {
     });
   }
 
+  // Starts adding a new prof review
   void _startAddNewProf(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -359,7 +373,7 @@ class _ViewProfState extends State<ViewProf> {
       },
     );
   }
-
+//          Build View Prof         //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -414,13 +428,24 @@ class _ViewProfState extends State<ViewProf> {
   }
 }
 
+///**************************************** */
+///         View Course Widget
+///**************************************** */
+// Widget
+class ViewCourse extends StatefulWidget {
+  const ViewCourse({super.key});
+
+  @override
+  State<ViewCourse> createState() => _ViewCourseState();
+}
+
+// State
 class _ViewCourseState extends State<ViewCourse> {
   // final nameController = TextEditingController();
-
   // final costController = TextEditingController();
-
   // final typeController = TextEditingController();
 
+  //          Default List of Courses         //  
   final List<Course> _courseReviews = [
     Course(
       id: 'm1',
@@ -439,7 +464,8 @@ class _ViewCourseState extends State<ViewCourse> {
       review: "Suprisingly simple and easy!",
     ),
   ];
-
+  //          View Courses Methods
+  // Adds a new course
   void _addNewCourse(String name, double rating, String type, String review) {
     if (review == "") {
       review = "No Review";
@@ -459,6 +485,7 @@ class _ViewCourseState extends State<ViewCourse> {
     });
   }
 
+  //          Starts adding a new course review         //
   void _startAddNewCourse(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -472,6 +499,7 @@ class _ViewCourseState extends State<ViewCourse> {
     );
   }
 
+  //          Build View Course         //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -526,13 +554,24 @@ class _ViewCourseState extends State<ViewCourse> {
   }
 }
 
+///**************************************** */
+///         View Institution Widget
+///**************************************** */
+// Widget
+class ViewInst extends StatefulWidget {
+  const ViewInst({super.key});
+
+  @override
+  State<ViewInst> createState() => _ViewInstState();
+}
+
+// State
 class _ViewInstState extends State<ViewInst> {
   // final nameController = TextEditingController();
-
   // final costController = TextEditingController();
-
   // final typeController = TextEditingController();
 
+  //          Default List of Institutions          //
   final List<Inst> _instReviews = [
     Inst(
       id: 'm1',
@@ -552,6 +591,8 @@ class _ViewInstState extends State<ViewInst> {
     ),
   ];
 
+  //          View Institutions Methods         //
+  // Adds a new institution review
   void _addNewInst(String name, double rating, String type, String review) {
     if (review == "") {
       review = "No Review";
@@ -571,6 +612,7 @@ class _ViewInstState extends State<ViewInst> {
     });
   }
 
+  // Starts adding a new instatution review
   void _startAddNewInst(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -584,6 +626,7 @@ class _ViewInstState extends State<ViewInst> {
     );
   }
 
+  //          Build View Instatution          //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
