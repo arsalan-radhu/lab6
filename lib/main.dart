@@ -8,20 +8,8 @@
 *               review profs, courses, and institutions.
 **/
 //          Imports         //
-// Flutter
 import 'package:flutter/material.dart';
-// Widgets
-import 'widgets/new_prof.dart';
-import 'widgets/prof_list.dart';
-import 'widgets/new_course.dart';
-import 'widgets/course_list.dart';
-import 'widgets/new_inst.dart';
-import 'widgets/inst_list.dart';
 import 'widgets/home.dart';
-// Models
-import 'models/prof.dart';
-import 'models/course.dart';
-import 'models/inst.dart';
 
 //          App Start         //
 void main() => runApp(const MyApp()); // Runs the app
