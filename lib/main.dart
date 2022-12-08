@@ -248,10 +248,9 @@ class MyHomePageState extends State {
         children: <Widget>[
           Container(
             width: double.infinity,
-            child: Card(
-              color: color,
+            child: const Card(
               elevation: 5,
-              child: const Text(
+              child: Text(
                 'Welcome to our Final Project!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -443,10 +442,9 @@ class _ViewProfState extends State<ViewProf> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: Card(
-                color: color,
+              child: const Card(
                 elevation: 5,
-                child: const Text(
+                child: Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
@@ -570,10 +568,9 @@ class _ViewCourseState extends State<ViewCourse> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: Card(
-                color: color,
+              child: const Card(
                 elevation: 5,
-                child: const Text(
+                child: Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
@@ -698,10 +695,9 @@ class _ViewInstState extends State<ViewInst> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: Card(
-                color: color,
+              child: const Card(
                 elevation: 5,
-                child: const Text(
+                child: Text(
                   'View the reviews here:',
                   style: TextStyle(
                     fontSize: 28,
