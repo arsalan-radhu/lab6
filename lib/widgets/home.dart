@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import 'settings.dart';
 import 'view_prof.dart';
+import 'view_course.dart';
 
 ///**************************************** */
 ///         Home Page Widget
