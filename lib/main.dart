@@ -115,52 +115,100 @@ class MySettingsPageState extends State {
           children: <Widget>
           [
             //          Change Color button red         //
-            Container
-            (
-              child:
-              ElevatedButton(onPressed: red, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Red")),
-            ),
-            //          Change Color button blue          //
-            Container
-            (
-              child:
-              ElevatedButton(onPressed: blue, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Blue")),
-            ),
-            //          Change Color button green         //
-            Container
-            (
-              child:
-              ElevatedButton(onPressed: green, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Green")),
-            ),  
-            //          Change Color button dark          //
-            Container
-            (
-              child:
-              ElevatedButton(onPressed: dark, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Dark")),
-            ),               
-            //          Home Button         //
-            Container
-            (
-              child: ElevatedButton
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: 
+              Container
               (
-                child: const Text('Home Page'),
-                style: ElevatedButton.styleFrom(backgroundColor: color),
-                onPressed:() 
-                {
-                    // Navigate Back Home
-                    Navigator.pushAndRemoveUntil
-                    (context,
-                    MaterialPageRoute
-                    (
+                height: 50.0, //Provides height for the RaisedButton
+                child: 
+                FractionallySizedBox(
+                  widthFactor: 0.4, ////Provides 40% width for the RaisedButton
+                  child:
+                  ElevatedButton(onPressed: red, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Red")),
+              ),
+            ),
+          ),
+
+            //          Change Color button blue          //
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: 
+              Container
+              (
+                height: 50.0, //Provides height for the RaisedButton
+                child: 
+                FractionallySizedBox(
+                  widthFactor: 0.4, ////Provides 40% width for the RaisedButton
+                  child:
+                  ElevatedButton(onPressed: blue, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Blue")),
+              ),
+            ),
+          ),
+
+            //          Change Color button green         //
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: 
+              Container
+              (
+                height: 50.0, //Provides height for the RaisedButton
+                child: 
+                FractionallySizedBox(
+                  widthFactor: 0.4, ////Provides 40% width for the RaisedButton
+                  child:
+                  ElevatedButton(onPressed: green, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Green")),
+              ),
+            ),
+          ),
+ 
+            //          Change Color button dark          //
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: 
+              Container
+              (
+                height: 50.0, //Provides height for the RaisedButton
+                child: 
+                FractionallySizedBox(
+                  widthFactor: 0.4, ////Provides 40% width for the RaisedButton
+                  child:
+                  ElevatedButton(onPressed: dark, style: ElevatedButton.styleFrom(backgroundColor: color), child: const Text("Dark")),
+              ),
+            ),
+          ),
+              
+            //          Home Button         //
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: 
+              Container
+              (
+                height: 50.0, //Provides height for the RaisedButton
+                child: 
+                FractionallySizedBox(
+                  widthFactor: 0.4, ////Provides 40% width for the RaisedButton
+                  child:
+                  ElevatedButton
+                  (
+                    child: const Text('Home Page'),
+                    style: ElevatedButton.styleFrom(backgroundColor: color),
+                    onPressed:() 
+                    {
+                      // Navigate Back Home
+                      Navigator.pushAndRemoveUntil
+                      (context,
+                      MaterialPageRoute
+                      (
                       builder: (context) => MyHomePage()
-                    ),
-                    ModalRoute.withName("/MySettingsPage")
+                      ),
+                      ModalRoute.withName("/MySettingsPage")
                     );
                 },
+              ),              
               ),
-
             ),
-
+          ),
           ]
         )
 
