@@ -12,6 +12,7 @@ import '../main.dart';
 import 'settings.dart';
 import 'view_prof.dart';
 import 'view_course.dart';
+import 'view_inst.dart';
 
 ///**************************************** */
 ///         Home Page Widget
