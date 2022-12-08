@@ -422,6 +422,7 @@ class _ViewProfState extends State<ViewProf> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_box_outlined),
+        backgroundColor: color,
         onPressed: () => _startAddNewProf(context),
       ),
     );
@@ -548,6 +549,7 @@ class _ViewCourseState extends State<ViewCourse> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_box_outlined),
+        backgroundColor: color,
         onPressed: () => _startAddNewCourse(context),
       ),
     );
@@ -675,6 +677,7 @@ class _ViewInstState extends State<ViewInst> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_box_outlined),
+        backgroundColor: color,
         onPressed: () => _startAddNewInst(context),
       ),
     );
