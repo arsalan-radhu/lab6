@@ -1,7 +1,17 @@
+/*
+* Author:       Arsalan Radhu
+* Date:         2022-12-08  
+* Course Code:  MODE4201
+* File:         course_list.dart
+* Description: 
+*              This file is the widget for the list of course reviews 
+**/
+//          Imports         //
 import 'package:flutter/material.dart';
 import '../models/course.dart';
 import 'package:intl/intl.dart';
 
+// DELETE OR KEEP???
 // class ViewMedia extends StatefulWidget {
 //   final Function viewMedia;
 
@@ -20,10 +30,15 @@ import 'package:intl/intl.dart';
 
 // }
 
+///**************************************** */
+///         Course List Widget
+///**************************************** */
+//          Widget          //
 class CourseList extends StatelessWidget {
   final List<Course> media;
   const CourseList(this.media, {super.key});
 
+  //          Build Course List         //
   @override
   Widget build(BuildContext context) {
     return Container(

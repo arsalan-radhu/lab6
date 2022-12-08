@@ -1,7 +1,17 @@
+/*
+* Author:       Arsalan Radhu
+* Date:         2022-12-08  
+* Course Code:  MODE4201
+* File:         prof_list.dart
+* Description: 
+*              This file is the widget for the list of prof reviews
+**/
+//          Imports         //
 import 'package:flutter/material.dart';
 import '../models/prof.dart';
 import 'package:intl/intl.dart';
 
+// DELETE OR KEEP????
 // class ViewMedia extends StatefulWidget {
 //   final Function viewMedia;
 
@@ -20,10 +30,15 @@ import 'package:intl/intl.dart';
 
 // }
 
+///**************************************** */
+///         Prof List Widget
+///**************************************** */
+//          Widget          //
 class ProfList extends StatelessWidget {
   final List<Prof> media;
   const ProfList(this.media, {super.key});
 
+  //          Build Prof List         //
   @override
   Widget build(BuildContext context) {
     return Container(

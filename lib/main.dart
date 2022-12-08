@@ -1,12 +1,12 @@
 /*
-* Author:       Tyler Osborne
-* Date:         2022-11-24  
+* Author:       Arsalan Radhu & Tyler Osborne
+* Date:         2022-12-08  
 * Course Code:  MODE4201
+* File:         main.dart
 * Description:
 *               This is a Rate my prof app where users can
-*               review profs, courses, and insatutions.
+*               review profs, courses, and institutions.
 **/
-
 //          Imports         //
 import 'package:flutter/material.dart';
 import 'widgets/new_prof.dart';
@@ -22,7 +22,7 @@ import 'models/prof.dart';
 //          App Start         //
 void main() => runApp(const MyApp()); // Runs the app
 
-//          Global Color Variables          //
+//          Global Settings Variables          //
 var color = Colors.blue; // Color of the app bar
 var backgroundColor = Colors.white; // Color of the background of the app
 var textColor = Colors.white; // Color of text
@@ -392,7 +392,7 @@ class _ViewProfState extends State<ViewProf> {
     if (review == "") {
       review = "No Review";
     }
-
+  
     final newProf = Prof(
       name: name,
       rating: rating,

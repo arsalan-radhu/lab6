@@ -1,5 +1,18 @@
+/*
+* Author:       Arsalan Radhu
+* Date:         2022-12-08  
+* Course Code:  MODE4201
+* File:         new_prof.dart
+* Description:
+*              This is the new prof widget that opens when adding a new prof review.     
+**/
+//          Imports          //
 import 'package:flutter/material.dart';
 
+///**************************************** */
+///         New Prof Widget
+///**************************************** */
+//          Widget          //
 class NewProf extends StatefulWidget {
   final Function addProf;
 
@@ -10,14 +23,15 @@ class NewProf extends StatefulWidget {
 }
 
 //TODO: BUG? - When typing into the text fields, the screen doesn't scroll and you can't see what you're typing after rating.
-
+//          State         //
 class _NewProfState extends State<NewProf> {
-  //Controllers for Create Screen
+  //          Controllers for Create Screen         //
   final nameController = TextEditingController();
   final ratingController = TextEditingController();
   final typeController = TextEditingController();
   final reviewController = TextEditingController();
 
+  //         Methods          //
   void submitData() {
     final enteredName = nameController.text;
     final enteredRating = double.parse(ratingController.text);
@@ -33,6 +47,7 @@ class _NewProfState extends State<NewProf> {
     Navigator.of(context).pop();
   }
 
+  //          Build New Prof         //
   @override
   Widget build(BuildContext context) {
     return Scaffold(

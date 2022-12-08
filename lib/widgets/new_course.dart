@@ -1,5 +1,18 @@
+/*
+* Author:       Arsalan Radhu
+* Date:         2022-12-08  
+* Course Code:  MODE4201
+* File:         new_course.dart
+* Description: 
+*              This file is the widget for adding a new course review 
+**/
+//          Imports         //
 import 'package:flutter/material.dart';
 
+///**************************************** */
+///         New Course Widget
+///**************************************** */
+//          Widget         //
 class NewCourse extends StatefulWidget {
   final Function addCourse;
 
@@ -10,14 +23,15 @@ class NewCourse extends StatefulWidget {
 }
 
 //TODO: BUG? - When typing into the text fields, the screen doesn't scroll and you can't see what you're typing after rating.
-
+//          State         //
 class _NewCourseState extends State<NewCourse> {
-  //Controllers for Create Screen
+  //          Controllers for Create Screen         //
   final nameController = TextEditingController();
   final ratingController = TextEditingController();
   final typeController = TextEditingController();
   final reviewController = TextEditingController();
 
+  //          Methods         //
   void submitData() {
     final enteredName = nameController.text;
     final enteredRating = double.parse(ratingController.text);
@@ -33,6 +47,7 @@ class _NewCourseState extends State<NewCourse> {
     Navigator.of(context).pop();
   }
 
+  //          Build New Course         //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
